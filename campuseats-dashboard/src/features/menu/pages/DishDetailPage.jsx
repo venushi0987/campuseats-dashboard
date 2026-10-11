@@ -4,7 +4,7 @@ import { useFetch } from "../hooks/useFetch";
 
 function DishDetailPage() {
   const { id } = useParams();
-  const { data: dishes, isLoading, error } = useFetch("/api/menu");
+  const { data: dishes, isLoading, error } = useFetch("/menu.json");
 
   if (isLoading) return <p className="state-message">Loading dish details...</p>;
   if (error) return <p className="state-message">Could not load dish details: {error}</p>;
