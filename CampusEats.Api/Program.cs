@@ -19,7 +19,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("Frontend", policy =>
         policy.WithOrigins(
-                builder.Configuration["FrontendOrigin"] ?? "http://localhost:5173"
+                builder.Configuration["FrontendOrigin"] ?? "http://campuseats-dashboard-jade.vercel.app"
             )
             .AllowAnyHeader()
             .AllowAnyMethod());
