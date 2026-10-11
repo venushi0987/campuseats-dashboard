@@ -12,7 +12,7 @@ function MenuPage() {
     data: dishes,
     isLoading,
     error,
-  } = useFetch("/menu.json");
+  } = useFetch("/api/menu");
 
   if (isLoading) return <p className="state-message">Loading menu...</p>;
   if (error) return <p className="state-message">Could not load menu: {error}</p>;

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"; 
 
+const API = import.meta.env.VITE_API_URL;
+
 export function useFetch(url) { 
     const [data, setData] = useState(null); 
     const [isLoading, setIsLoading] = useState(true); 
@@ -8,7 +10,7 @@ export function useFetch(url) {
     useEffect(() => { 
         let active = true; 
         Promise.resolve().then(() => { if (active) setIsLoading(true); }); 
-        fetch(url) 
+        fetch(`${API}${url}`) 
         
             .then((res) => { 
                 if (!res.ok) throw new Error("HTTP " + res.status); 
