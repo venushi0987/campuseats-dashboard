@@ -17,7 +17,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
+    options.AddPolicy("Frontend", policy =>
         policy.WithOrigins(
                 builder.Configuration["FrontendOrigin"] ?? "http://localhost:5173"
             )
@@ -130,7 +130,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors();
+app.UseCors("Frontend");
 
 app.UseAuthentication();
 
